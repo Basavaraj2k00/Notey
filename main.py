@@ -65,7 +65,7 @@ def notes():
     # notes = Note.query.order_by(Note.date.desc()).all()
 
     if request.method == "POST":
-        date = datetime.now().strftime('%d-%B-%Y %H:%M')
+        date = datetime.now().strftime('%d-%B-%Y %X')
         new_data = Note(
             title=request.form['title'].title(),
             content=request.form['content'],
