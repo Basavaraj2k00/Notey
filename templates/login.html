@@ -9,7 +9,7 @@
 <div class="container-fluid bg hero " >
 
     <h1 class="text-white text-center">Login</h1>
-
+<div class="form-width">
 
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -21,6 +21,6 @@
     {% endif %}
     {% endwith %}
     {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-
+</div>
 </div>
 {% endblock %}

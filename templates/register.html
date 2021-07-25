@@ -8,6 +8,8 @@
 {% block content %}
 
 <div class="container-fluid hero" id="hero">
+<div class="form-width">
+
 
     <h1 class="text-white text-center">Register</h1>
     {% with messages = get_flashed_messages() %}
@@ -20,5 +22,7 @@
     {% endif %}
     {% endwith %}
     {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+
+</div>
 </div>
 {% endblock %}

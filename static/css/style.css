@@ -21,8 +21,11 @@ font-size: large;
   width: 100%;
 }
 
-.form {
-width:50%;
+.form-width {
+    width: 30%;
+    line-height: 3;
+    margin-top: 5%;
+    margin-left: 35%;
 }
 @media only screen and (max-width: 768px) {
 
