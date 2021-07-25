@@ -21,6 +21,9 @@ font-size: large;
   width: 100%;
 }
 
+.form {
+width:50%;
+}
 @media only screen and (max-width: 768px) {
 
   [class*="col-"] {
