@@ -156,7 +156,5 @@ and (-webkit-min-device-pixel-ratio: 3) {
     width: 100%;
   }
 
-  form.create-note {
-    width: 100%;
-  }
+
 }
