@@ -6,21 +6,24 @@
 <i class="fa fa-user"></i> -->
 {% block content %}
 
-<div class="container-fluid bg hero " >
+<div class="container-fluid bg hero ">
 
     <h1 class="text-white text-center">Login</h1>
-<div class="form-width">
+    <div style="width: 30%;
+    line-height: 3;
+    margin-top: 5%;
+    margin-left: 35%;">
 
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    {% for message in messages %}
-    {{ message }}
-    
-    
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
-    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
-</div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        {{ message }}
+
+
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+    </div>
 </div>
 {% endblock %}
