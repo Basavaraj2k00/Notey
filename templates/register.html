@@ -1,0 +1,24 @@
+{% extends  "template.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block title %}Register{% endblock %}
+<!-- <i class="fa fa-lock"></i>
+<i class="fa fa-user"></i> -->
+{% block content %}
+
+<div class="container-fluid hero" id="hero">
+
+    <h1 class="text-white text-center">Register</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    {{ message }}
+    
+    
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+</div>
+{% endblock %}

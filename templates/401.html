@@ -1,0 +1,62 @@
+{% extends  "template.html" %}
+
+
+{% block title %}Home{% endblock %}
+
+{% block content%}
+
+    <!-- Intro settings -->
+    <style>
+      /* Default height for small devices */
+      #intro-example {
+        height: 400px;
+      }
+  
+      /* Height for devices larger than 992px */
+      @media (min-width: 992px) {
+        #intro-example {
+          height: 600px;
+        }
+      }
+
+   
+    </style>
+  
+    <!-- Navbar -->
+   
+  
+    <!-- Background image -->
+    <div
+      
+      class="p-5 text-center hero" >
+      <div class="mask"  >
+        <div class="d-flex justify-content-center align-items-center" style="margin-top: 10%;" >
+          <div >
+            <h1 class="mb-3">You are not logged in!. </h1>
+            <hr>
+            <h5 class="mb-4">
+            Please Login or Register to continue
+            </h5>
+            <a
+              class="btn btn-outline-light btn-lg m-2"
+              href="{{url_for('register')}}"
+              role="button"
+              rel="nofollow"
+    
+              >Register</a
+            >
+            <a
+              class="btn btn-outline-light btn-lg m-2"
+              href="{{url_for('login')}}"
+          
+              role="button"
+              >Login</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Background image -->
+
+
+{% endblock %}

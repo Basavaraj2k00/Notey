@@ -1,0 +1,103 @@
+{% extends "template.html" %}
+
+
+{% block title %}Notes{% endblock %}
+
+{% block content%}
+
+
+
+<div class="bg min-vh-100 ">
+
+
+
+  <div class="container ">
+
+    <div class="row">
+      <div class="col-lg-12 col-md-6 col-sm-12"  >
+
+  
+      <form class="create-note" action="{{url_for('notes')}}" method="POST">
+        <input name="title" placeholder="Title" id="show" autocomplete="off" value="" required />
+
+        <textarea name="content" id='textarea' placeholder="Take a note..." rows="4" style="display:none" required></textarea>
+
+        <button type="submit">
+          <i class="fas fa-plus"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+    <div class="row">
+      {% for note in user.notes | reverse %}
+      <div class="col-lg-3 col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <div id="{{note.id}}">
+
+            
+            <h5 class="card-title">{{note.title}}</h5>
+            <hr>
+            <p class="">{{note.content}}</p>
+            <hr>
+          </div>
+            <small class="text-muted">Created on  <span style="font-family: cursive;">{{note.date}}</span></small> 
+            <hr>
+        
+  
+            <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Copy" type="button" class="btn btn-outline-dark"  onclick="copy('{{note.id}}')"><i class="far fa-copy"></i></a> 
+       
+            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" href="{{url_for('delete',id=note.id)}}" class="btn btn-outline-dark" style="float:right" ><i
+                class="far fa-trash-alt"></i></a>
+          </div>
+        </div>
+        <br><br><br>
+      </div>
+
+
+
+      {% endfor %}
+    </div>
+
+
+  </div>
+  <p id="alert">Text Copied!</p>
+
+  <script>
+    function copy(copyId){
+      let inputElement = document.createElement("input");
+      inputElement.type = "text";
+      let copyText = document.getElementById(copyId).textContent;
+      inputElement.value = copyText;
+      document.body.appendChild(inputElement);
+      inputElement.select();
+      document.execCommand('copy');
+      document.body.removeChild(inputElement);
+      
+      document.getElementById("alert").style.display = "block";
+      setTimeout(function(){
+          document.getElementById("alert").style.display = "none";
+      }, 1000);
+  }
+  </script>
+
+  {% endblock %}
+  <!-- <script>
+
+    function myFunction() {
+  
+
+      var range = document.createRange();
+      range.selectNode(document.getElementById("note"));
+      
+      window.getSelection().removeAllRanges(); // clear current selection
+      window.getSelection().addRange(range);
+      // to select text
+      document.execCommand("copy");
+      window.getSelection().removeAllRanges();// to deselect
+
+     // alert("Copied the text: " + full_text);
+    }
+    </script> -->
