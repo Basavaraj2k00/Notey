@@ -3,13 +3,15 @@ from flask import Flask, render_template, redirect, url_for, flash, abort, reque
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
 from flask_bootstrap import Bootstrap
-
+from dotenv import load_dotenv
+load_dotenv()
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from sqlalchemy.sql import func
 from forms import LoginForm, RegisterForm
 from datetime import datetime
 import os
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
@@ -170,4 +172,5 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
+    # app.run(host='127.0.0.1', port=8000, debug=True)
