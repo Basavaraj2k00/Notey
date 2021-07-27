@@ -14,13 +14,13 @@
   <div class="container ">
 
     <div class="row">
-      <div class="col-lg-12 col-md-6 col-sm-12" >
+      <div class="col-lg-12 col-md-6 col-sm-6" >
 
   
       <form class="create-note" action="{{url_for('notes')}}" method="POST">
         <input name="title" placeholder="Title" id="show" autocomplete="off" value="" required />
 
-        <textarea name="content" id='textarea' placeholder="Take a note..." rows="4" style="display:none" required></textarea>
+        <textarea wrap="hard" name="content" id='textarea' placeholder="Take a note..." rows="4" style="display:none" required></textarea>
 
         <button type="submit">
           <i class="fas fa-plus"></i>
@@ -40,7 +40,7 @@
             
             <h5 class="card-title">{{note.title}}</h5>
             <hr>
-            <p class="">{{note.content}}</p>
+            <p style="white-space: pre-wrap;">{{note.content}}</p>
             <hr>
           </div>
             <small class="text-muted">Created on  <span style="font-family: cursive;">{{note.date}}</span></small> 
